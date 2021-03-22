@@ -49,7 +49,7 @@
         message = "This is the equilibrium price"
       }
 
-      document.getElementById("result").innerHTML = `Supreme Writer sold: $${consumption.toLocaleString('en-US', {maximumFractionDigits:2})}/month<br>Revenue: $${revenue.toLocaleString('en-US', {maximumFractionDigits:2}) }/month<br><br>${message}`;
+      document.getElementById("result").innerHTML = `Supreme Writer sold: ${consumption}/month<br>Revenue: $${revenue.toLocaleString('en-US', {maximumFractionDigits:2}) }/month<br><br>${message}`;
 
 			/** Set selected price in indexedDB */
       setLastPrice();
