@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: darkblue;
+}
+
+main {
+  /* display: flex; */
+  justify-content: center;
+  background-color: black;
+}
+
+.navbar {
+  color: white;
+}
+
+.title {
+  color: rgb(236, 249, 0);
+}
+
+.addBorder {
+  /* border: 1px solid black; */
+  color: darkblue;
+}
+
+.contained {
+  margin: 20px;
+  padding: 20px;
+  background-color: #76D6FF;
+}
+
+#result {
+  color: #000000;
+}
+
+@media screen and (max-width: 700px) {
+  input {
+    display: block;
+  }
+}
+
+#calculate {
+  background: blue;
+  color: white;
+}
+
+#calculate:hover {
+  background: rgb(69, 69, 70);
+  color: white;
+}

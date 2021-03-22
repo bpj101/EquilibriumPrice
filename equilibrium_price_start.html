@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Equilibrium Price</title>
+
+  <style>
+    .container {
+      margin: 20px;
+      padding: 20px;
+      background-color: #76D6FF;
+    }
+    
+    #result {
+      color: #7A81FF;
+    }
+    
+    @media screen and (max-width: 700px) {
+      input {
+        display: block;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="intro" class="container">
+    ABC Company Inc. has just invented the XYZ Widget. A revolutionary product that will change the lives of everyone that buys it. In this exercise, you will help ABC Company Inc choose the correct equillibrium price for the new product.
+  </div>
+  <div id="input" class="container">
+    <form>
+      <div class="section">
+        Price for XYZ Widget:
+        <input type="radio" name="price" value=1> $1
+        <input type="radio" name="price" value=2> $2
+        <input type="radio" name="price" value=3> $3
+        <input type="radio" name="price" value=4> $4
+        <input type="radio" name="price" value=5> $5
+        <input type="radio" name="price" value=6> $6
+        <input type="radio" name="price" value=7> $7
+        <input type="radio" name="price" value=8> $8
+        <input type="radio" name="price" value=9> $9
+        <input type="radio" name="price" value=10> $10
+      </div>
+
+      <input id="calculate" type="button" value="Calculate">
+
+
+
+  </div>
+  </form>
+  </div>
+  <div id="result" class="container">
+
+  </div>
+
+  <script language="javascript">
+    // Equilibrium Price Equations:
+    //   Qsupply = Msupply * price + Bsupply
+    //   Qdemand = Mdemand * price + Bdemand
+
+    var Mdemand = -1000;
+    var Bdemand = 10000;
+    var Msupply = 0; // what if ABC can hire more people when price goes up? 
+    var Bsupply = 8000;
+    var consumption;
+    var supply;
+    var message;
+
+    document.getElementById("calculate").addEventListener("click", calculateOutput);
+
+    function calculateOutput() {
+      var price;
+      var priceOptions = document.getElementsByName("price");
+      console.log('priceOptions', priceOptions)
+      message = "";
+
+      for (var i = 0; i < priceOptions.length; i++) {
+
+        console.log('i', i)
+        if (priceOptions[i].checked) {
+          price = priceOptions[i].value;
+          break;
+        }
+      }
+
+      consumption = price * Mdemand + Bdemand;
+      supply = price * Msupply + Bsupply;
+
+      if (consumption > supply) {
+        consumption = supply;
+        message = "ABC Company cannot make enough XYZ Widgets";
+      }
+
+      if (consumption <= 0) {
+        consumption = 0;
+        message = "No one will buy XYZ Widgets at this price";
+      }
+
+      revenue = consumption * price;
+
+      if (consumption === supply) {
+        message = "This is the equilibrium price"
+      }
+
+
+      document.getElementById("result").innerHTML = "XYZ Widgets sold:" + consumption + "/month<br>Revenue:" + revenue + "/month<br><br>" + message;
+    }
+  </script>
+</body>
+
+</html>
